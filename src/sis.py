@@ -2,7 +2,9 @@
 # -*- coding: utf-8 -*-
 """
 
-Generate networks.
+SIS model.
+
+Mu=1, as in the Satorras, Vespigniani paper.
 
 Created on Tue Jun 26 13:31:21 2018
 

@@ -31,7 +31,7 @@ def fig3(N, M, rep, title, filename ='',
             print j,;sys.stdout.flush()  # report
             g = scale_free_graph(N, gamma, in_scale_free, out_scale_free, kavg)   
             NN = float(len(g))
-            print NN
+            print NN, np.mean(g.degree().values())
             sis = SIS(g, lam, p0)  # new sis model
             p[i,j,0] = len(sis.inf)/NN  # count 0th too
             for k in range(1,M):  # updates
@@ -52,6 +52,6 @@ def fig3(N, M, rep, title, filename ='',
     
 if __name__=='__main__':
     # fig 3
-    fig3(10000, 1000, rep=1000, lams = [0.35,0.36,0.37], p0=-1, kavg=3.,
+    fig3(10000, 1000, rep=10, lams = [0.35,0.36,0.37], p0=-1, kavg=3.,
          title='Spreading on ER graph',filename='fig3')
     
