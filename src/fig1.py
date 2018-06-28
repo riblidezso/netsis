@@ -21,18 +21,7 @@ def fig1(N, M, rep, title='', filename='', kavg=3.,
     
     Density of infected nodes as a function of lamdba.
     """
-    # scale free-ish directed network
-    #g0 = scale_free_graph(N, gamma, True, True)  
-    #print 'SF <k> =',np.mean(g0.degree().values())/2
-    # ER
-    #g1 = scale_free_graph(N, 0, False, False, kavg)
-    
-    
-    # starting sis models, to have uniform initial infections
-    #sis0 = SIS(g0, 0, p0) 
-    #sis1 = SIS(g1, 0, p0) 
-    
-    p = np.zeros((2,len(lams),rep))
+    p = np.zeros((2,len(lams),rep))  # data holder
     for i,lam in enumerate(lams):
         print '\n',lam,
         for j in range(rep):
@@ -40,7 +29,6 @@ def fig1(N, M, rep, title='', filename='', kavg=3.,
             # scale-free
             g0 = scale_free_graph(N, gamma, True, True) 
             sis = SIS(g0, lam, p0)  # sis model
-            # sis.inf = set(sis0.inf)  # set infections 
             for k in range(M):
                 sis.update()
             p[0,i,j] = len(sis.inf)/float(len(g0))
@@ -48,7 +36,6 @@ def fig1(N, M, rep, title='', filename='', kavg=3.,
             # er
             g1 = scale_free_graph(N, 0, False, False, kavg)
             sis = SIS(g1, lam, p0)  # sis model
-            # sis.inf = set(sis1.inf)  # set infections 
             for k in range(M):
                 sis.update()
             p[1,i,j] = len(sis.inf)/float(len(g1))
