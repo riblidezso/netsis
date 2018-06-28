@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def fig1(N, M, title='', filename='',
+def fig1(N, M, rep, title='', filename='', kavg=3,
          lams = [0.005,0.01,0.02],  p0 = 0.0001 ,
          gamma = 2.5, in_scale_free=True, out_scale_free=True):
     """
@@ -23,33 +23,42 @@ def fig1(N, M, title='', filename='',
     # scale free-ish directed network
     g0 = scale_free_graph(N, gamma, True, True)
     # get its average degree
-    k = np.mean(g0.degree().values())/2
-    mu = 0.1 * k
-    print 'mu = ',mu
+    kavg = np.mean(g0.degree().values())/2
     # ER
-    g1 = scale_free_graph(N, gamma, False, False, k)
+    g1 = scale_free_graph(N, gamma, False, False, kavg)
     
     # starting sis models, to have uniform initial infections
     sis0 = SIS(g0, 0, 0, p0) 
     sis1 = SIS(g1, 0, 0, p0) 
     
-    p0, p1 = [], []
-    for lam in lams:
-        sis = SIS(g0, lam, mu, p0)  # sis model
-        sis.inf = set(sis0.inf)  # set infections 
-        for j in range(M):
-            sis.update()
-        p0.append(len(sis.inf)/float(N))
-        
-        sis = SIS(g1, lam, mu, p0)  # sis model
-        sis.inf = set(sis1.inf)  # set infections 
-        for j in range(M):
-            sis.update()
-        p1.append(len(sis.inf)/float(N))
+    p = np.zeros((2,len(lams),rep))
+    for i,lam in enumerate(lams):
+        for j in range(rep):
+            sis = SIS(g0, lam, mu, p0)  # sis model
+            sis.inf = set(sis0.inf)  # set infections 
+            for k in range(M):
+                sis.update()
+            p[0,i,j] = len(sis.inf)/float(N)
+            
+            sis = SIS(g1, lam, mu, p0)  # sis model
+            sis.inf = set(sis1.inf)  # set infections 
+            for k in range(M):
+                sis.update()
+            p[1,i,j] = len(sis.inf)/float(N)
         
 
-    plt.plot(lams,p0,'o-',label='SF')
-    plt.plot(lams,p1,'x:',label='ER')
+    #line, = plt.plot(lams,p[0].mean(axis=1),'+--',label='SF')
+    line, = plt.plot(lams,np.median([0],axis=1),'+--',label='SF')
+    plt.fill_between(lams,np.percentile(p[0],10,axis=1),
+                     np.percentile(p[0],90,axis=1),
+                     color=line.get_color(), alpha=0.2)
+    
+    #line, = plt.plot(lams,p[1].mean(axis=1),'x:',label='ER')
+    line, = plt.plot(lams,np.median([0],axis=1),'x:',label='ER')
+    plt.fill_between(lams,np.percentile(p[1],10,axis=1),
+                     np.percentile(p[1],90,axis=1),
+                     color=line.get_color(), alpha=0.2)
+
     plt.xlabel(r'$\lambda$')
     plt.ylabel('p')
     plt.title(title)
@@ -59,5 +68,6 @@ def fig1(N, M, title='', filename='',
     
     
 if __name__=='__main__':
-    fig1(100000, 1000, lams = np.arange(0.01,0.4,0.01), 
+    fig1(1000, 1000, rep=10, p0 = 1e-2,
+         lams = np.arange(0.01,0.2,0.01), 
          title='',filename='lamdba_p')

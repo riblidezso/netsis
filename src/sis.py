@@ -15,7 +15,7 @@ import numpy as np
 
 class SIS:
     """ Susceptible-Infected-Susceptible (SIS) Model."""
-    def __init__(self, g, lam, mu, p0):
+    def __init__(self, g, lam, p0):
         """ Iniatialize model with graph and parameters."""
         self.g = g
         self.nodes = g.nodes()
@@ -29,7 +29,7 @@ class SIS:
             self.inf = set(x for x in self.nodes if (random.random()<p0) )
         
         self.lam = lam
-        self.mu = mu
+        # self.mu = mu
         
     
     def update(self):
@@ -37,11 +37,15 @@ class SIS:
         k = [ ki for ki in self.inf if ki in self.edge_d]
         np.random.shuffle(k)
         
+        # infect
+        new_inf = set()
         for ki in k:
-            # infect
             for ei in self.edge_d[ki]:
                 if random.random() < self.lam:
-                    self.inf.add(ei)
-            # decay    
-            if random.random() < self.mu:
-                self.inf.remove(ki)           
+                    #self.new_inf.add(ei) 
+                    new_inf.add(ei) 
+        # decay    
+        self.inf = new_inf
+        #for ki in k:
+        #    if random.random() < self.mu:
+        #        self.inf.remove(ki)           
