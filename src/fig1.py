@@ -51,13 +51,13 @@ def fig1(N, M, rep, title='', filename='', kavg=3.,
         
 
     line, = plt.plot(lams,p[0].mean(axis=1),'+--',label='SF')
-    plt.fill_between(lams,np.percentile(p[0],5,axis=1),
-                     np.percentile(p[0],95,axis=1),
+    plt.fill_between(lams,np.percentile(p[0],16,axis=1),
+                     np.percentile(p[0],84,axis=1),
                      color=line.get_color(), alpha=0.2)
     
     line, = plt.plot(lams,p[1].mean(axis=1),'x:',label='ER')
-    plt.fill_between(lams,np.percentile(p[1],5,axis=1),
-                     np.percentile(p[1],95,axis=1),
+    plt.fill_between(lams,np.percentile(p[1],16,axis=1),
+                     np.percentile(p[1],84,axis=1),
                      color=line.get_color(), alpha=0.2)
 
     plt.xlabel(r'$\lambda$')
@@ -69,6 +69,6 @@ def fig1(N, M, rep, title='', filename='', kavg=3.,
     
     
 if __name__=='__main__':
-    fig1(10000, 1000, rep=10, p0 = -1,
-         lams = np.arange(0.3,0.41,0.03), 
+    fig1(1000, 1000, rep=30, p0 = -1,
+         lams = np.arange(0.001,0.6,0.03), 
          title='',filename='fig1')
