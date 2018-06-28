@@ -12,8 +12,8 @@ import networkx as nx
 import numpy as np
 import random
 
-def scale_free_graph(N, gamma, in_scale_free, out_scale_free, 
-                     k=3., same_deg = True, verbose=False):
+def custom_graph(N, gamma, in_scale_free, out_scale_free, 
+                 k=3., same_deg = True, verbose=False):
     """Create scale free pseudograph, with scale free in or/and out."""
     if in_scale_free:
         in_seq = np.random.zipf(gamma, N)
@@ -43,7 +43,7 @@ def scale_free_graph(N, gamma, in_scale_free, out_scale_free,
         
     g = nx.directed_configuration_model(list(in_seq), list(out_seq))
     
-    # only connected component?
+    # return only connected component?
     # gl = list(nx.components.strongly_connected_component_subgraphs(g))
     # gll = sorted(gl,key=lambda x:x.size())
     # g = gll[-1]

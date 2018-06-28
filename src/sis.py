@@ -13,6 +13,22 @@ Created on Tue Jun 26 13:31:21 2018
 
 import random
 import numpy as np
+from custom_graph import custom_graph
+
+
+def run_sis(N, M, lam, p0 = -1, kavg=3., gamma = 2.5, 
+            in_scale_free=True, out_scale_free=True):
+    """Run SIS simulation."""
+    p = np.zeros(M)  # data holder
+    # scale free or not scale free directed graph
+    g = custom_graph(N, gamma, in_scale_free, out_scale_free, kavg) 
+    sis = SIS(g, lam, p0)  # sis model
+    for k in range(M):
+        sis.update()
+        p[k] = len(sis.inf)/float(len(g))
+        if p[k]==0:
+            break
+    return p
 
 
 class SIS:
