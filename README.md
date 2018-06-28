@@ -20,9 +20,16 @@ Reproduced figure            |  Original figure
 
 ### Figure4
 
-Subcritical extinctions on random networks with exponentially bounded degree distribution.
+Subcritical extinction on random networks with exponentially bounded degree distribution.
 
+Reproduced figure            |  Original figure
+:-------------------------:|:-------------------------:
+![fig3](figs/fig4.png) |  
 
 ### Figure9
 
 Supercritical spreading on scale-free random networks.
+
+Reproduced figure            |  Original figure
+:-------------------------:|:-------------------------:
+![fig3](figs/fig9.png) |  
