@@ -14,7 +14,7 @@ Supercritical spreading on random networks with exponentially bounded degree dis
 
 Reproduced figure            |  Original figure
 :-------------------------:|:-------------------------:
-![fig1](figs/fig1_final.png) | ![fig1](original_figs/fig1.png)  
+![fig1](figs/fig1_best_yet.png) | ![fig1](original_figs/fig1.png)  
 
 
 ### Figure3
@@ -33,7 +33,7 @@ Subcritical extinction on random networks with exponentially bounded degree dist
 
 Reproduced figure            |  Original figure
 :-------------------------:|:-------------------------:
-![fig4](figs/fig4.png) |  ![fig4](original_figs/fig4.png)  
+![fig4](figs/fig4_final.png) |  ![fig4](original_figs/fig4.png)  
 
 ### Figure9
 
