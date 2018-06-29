@@ -23,7 +23,7 @@ Reproduced figure            |  Original figure
 
 
 ##### Notes: 
-The scale-free networks were created with a configuration model, therefore they are pseudographs, not graphs. This should not be a serious problem in this case. The network has a power-law, Zipf degree distribution with gamma = 2.2. The average degree was selected to be ~3 simply for conveniance.
+The scale-free networks were created with a configuration model, therefore they are pseudographs, not graphs. This should not be a serious problem in this case. The network has a power-law, Zipf degree distribution with gamma = 2.2. The average degree was selected to be ~3 simply for conveniance. Each node has the same out and in degree.
 
 
 ### Supercritical spreading on random networks with exponentially bounded degree distribution (Figure3)
@@ -62,4 +62,24 @@ Reproduced figure            |  Original figure
 
 ##### Note:
 On scale free networks an infection seeded in a single node can easily get trapped and disappear in the first step if it visits a node with 0 outgoing degrees. In order to avoid a spurious drop in the curves, i decided to eliminate runs where the infection disappeared after the first step.
+
+
+---
+
+# Directed networks with Scale-free distribution only in or out degrees
+
+Scale-free degree distribution only at the incoming degrees reproduces a very similar  epidemic threshold, and actually hurts the spreadin of infections. This is understandable, as a single node reaches less second neighbors due to the convergence of routes to nodes with high incoming degrees, and these nodes do not have large amount of outgoing degrees.
+(Note that scale free degree distributions with uncorrelated in-out degrees lead to the same behaviour, this is not shown here).
+
+Scale-free degree distribution only at the ougoming degrees leads to an intermediate behaviour between scale-free and bounded networks. While scale free out degree distributions help spreading from the 'half hubs', the bounded in degree distribution prevents the effective reaching of these 'half hubs'.
+
+
+Here I show the fractional of nodes reached by the infection depending on the spreading rate.
+
+![fig1a](figs/fig1a_final.png)
+
+
+Here I show supercritical spreading the fractional of nodes reached by the infection depending on the spreading rate.
+
+![fig1a](figs/fig3a_final.png)
 
