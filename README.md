@@ -7,9 +7,13 @@
 > Reproduce the main figures from the following paper: Romualdo Pastor- Satorras, Alessandro Vespignani, “Epidemic dynamics and endemic states in complex networks”, Phys. Rev. E 63, 066117 (2001). 
 
 
-### Figure1
+### The presence and absence of epidemic threshold
 
-Supercritical spreading on random networks with exponentially bounded degree distribution.
+Random networks with exponentially bounded degree distributions have a critical value for the spreading rate lambda. If it is lower than the critical value then infections disappear, if it is higher, then a thefinite fraction of the nodes will always be infected, the infection will persist.
+
+Random networks with scale free degree distributions do no have an epidemic threshold, even very weakly spreading infections can became endemic in a large enough network. The stationary fraction of infected nodes smoothly converges to 0 at 0 spreding rate.
+
+Here I show with <kin> = <kout> = 3 directed networks, the above described behaviour on Erdős-Rényi and scale-free networks. The chance for healing was selected to be 1, similarly to the referenced paper. At <kin/out> =3, the epidemic threshold is at 1/3, which is clearly visible for the ER-graph.
 
 
 Reproduced figure            |  Original figure
@@ -17,28 +21,44 @@ Reproduced figure            |  Original figure
 ![fig1](figs/fig1_best_yet.png) | ![fig1](original_figs/fig1.png)  
 
 
-### Figure3
 
-Supercritical spreading on random networks with exponentially bounded degree distribution.
+##### Notes: 
+The scale-free networks were created with a configuration model, therefore they are pseudographs, not graphs. This should not be a serious problem in this case. The network has a power-law, Zipf degree distribution with gamma = 2.2. The average degree was selected to be ~3 simply for conveniance.
 
+
+### Supercritical spreading on random networks with exponentially bounded degree distribution (Figure3)
+
+Above the epidemic threshold infections seeded in a single node can spread to a large fraction of the nodes. The initial spreading is an exponential process. 
+
+Here I show the average time dependence of the fraction of infected nodes, just above the epidemic threshold. Each line is the average of a 1000 independent realizations.
 
 Reproduced figure            |  Original figure
 :-------------------------:|:-------------------------:
 ![fig3](figs/fig3_final.png) | ![fig3](original_figs/fig3.png)  
 
 
-### Figure4
+### Subcritical extinction on random networks with exponentially bounded degree distribution (Figure4)
 
-Subcritical extinction on random networks with exponentially bounded degree distribution.
+Under the epidemic threshold infections seeded in a large fraction of nodes disappear with an exponential decay.
+
+Here I show the average time dependence of the fraction of infected nodes, just under the epidemic threshold. Each line is the average of a 1000 independent realizations.
+
 
 Reproduced figure            |  Original figure
 :-------------------------:|:-------------------------:
 ![fig4](figs/fig4_final.png) |  ![fig4](original_figs/fig4.png)  
 
-### Figure9
 
-Supercritical spreading on scale-free random networks.
+### Spreading on scale-free random networks.
+
+Scale-free graphs have no epidemic threshold. Even with spreading rates well above the epidemic threshold of an exponentially bound network with the same average degrees, infections seeded in a single node can spread to a large fraction of the nodes. The spreding process is a polynomial.
+
+
 
 Reproduced figure            |  Original figure
 :-------------------------:|:-------------------------:
 ![fig9](figs/fig9.png) |  ![fig9](original_figs/fig9.png)  
+
+
+##### Note:
+On scale free networks an infection seeded in a single node can easily get trapped and disappear in the first step if it visits a node with 0 outgoing degrees. In order to avoid a spurious drop in the curves, i decided to eliminate runs where the infection disappeared after the first step.
