@@ -38,14 +38,7 @@ def fig1a(N, M, rep, title='', filename='', kavg=3.,
                                out_scale_free=True)[-1]
 
     line, = plt.plot(lams,p[0].mean(axis=1),'+--',label='SF')
-    #plt.fill_between(lams,np.percentile(p[0],16,axis=1),
-    #                 np.percentile(p[0],84,axis=1),
-    #                 color=line.get_color(), alpha=0.2)
-    
     line, = plt.plot(lams,p[1].mean(axis=1),'x:',label='ER')
-    #plt.fill_between(lams,np.percentile(p[1],16,axis=1),
-    #                 np.percentile(p[1],84,axis=1),
-    #                 color=line.get_color(), alpha=0.2)
     
     line, = plt.plot(lams,p[2].mean(axis=1),'o-',label='SF in')
     plt.fill_between(lams,np.percentile(p[0],16,axis=1),

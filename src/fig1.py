@@ -51,6 +51,6 @@ def fig1(N, M, rep, title='', filename='', kavg=3.,
     
     
 if __name__=='__main__':
-    fig1(10000, 1000, rep=100, p0 = -1,
+    fig1(1000, 1000, rep=100, p0 = -1,
          lams = np.arange(0.001,0.61,0.03), 
          title='',filename='fig1')

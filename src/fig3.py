@@ -14,7 +14,7 @@ import sys
 
 def fig3(N, M, rep, title, filename ='',
         lams = [0.1,0.2], p0 = 0.0001 , kavg = 3.,
-        gamma = 2.1, in_scale_free=False, out_scale_free=False,
+        gamma = 2.2, in_scale_free=False, out_scale_free=False,
         xscale_='log', yscale_='log', filter_runs=False):
     """
     Reproduce p evolution figures from paper.
@@ -47,6 +47,6 @@ def fig3(N, M, rep, title, filename ='',
     
 if __name__=='__main__':
     # fig 3
-    fig3(10000, 1000, rep=10, lams = [0.35,0.36,0.37], p0=-1, kavg=3.,
+    fig3(10000, 1000, rep=1000, lams = [0.35,0.36,0.37], p0=-1, kavg=3.,
          title='Spreading on ER graph',filename='fig3')
     
