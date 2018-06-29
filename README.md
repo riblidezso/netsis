@@ -7,7 +7,7 @@
 > Reproduce the main figures from the following paper: Romualdo Pastor- Satorras, Alessandro Vespignani, “Epidemic dynamics and endemic states in complex networks”, Phys. Rev. E 63, 066117 (2001). 
 
 
-### The presence and absence of epidemic threshold
+### The presence and absence of epidemic threshold (Figure1)
 
 Random networks with exponentially bounded degree distributions have a critical value for the spreading rate lambda. If it is lower than the critical value then infections disappear, if it is higher, then a thefinite fraction of the nodes will always be infected, the infection will persist.
 
@@ -49,7 +49,7 @@ Reproduced figure            |  Original figure
 ![fig4](figs/fig4_final.png) |  ![fig4](original_figs/fig4.png)  
 
 
-### Spreading on scale-free random networks.
+### Spreading on scale-free random networks (Figure9)
 
 Scale-free graphs have no epidemic threshold. Even with spreading rates well above the epidemic threshold of an exponentially bound network with the same average degrees, infections seeded in a single node can spread to a large fraction of the nodes. The spreding process is a polynomial.
 
