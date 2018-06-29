@@ -13,7 +13,7 @@ Random networks with exponentially bounded degree distributions have a critical 
 
 Random networks with scale free degree distributions do no have an epidemic threshold, even very weakly spreading infections can became endemic in a large enough network. The stationary fraction of infected nodes smoothly converges to 0 at 0 spreding rate.
 
-Here I show with <kin> = <kout> = 3 directed networks, the above described behaviour on Erdős-Rényi and scale-free networks. The chance for healing was selected to be 1, similarly to the referenced paper. At <kin/out> =3, the epidemic threshold is at 1/3, which is clearly visible for the ER-graph.
+Here I show with <kin> = <kout> = 3 directed networks, the above described behaviour on Erdős-Rényi and scale-free networks. The chance for healing was selected to be 1, similarly to the referenced paper. At <kin/out> =3, the epidemic threshold is at 1/3, which is clearly visible for the ER-graph. The curves are the mean fractionsof 100 realizations, the shaded areas represent 68% confidence intervals.
 
 
 Reproduced figure            |  Original figure
@@ -74,12 +74,12 @@ Scale-free degree distribution only at the incoming degrees reproduces a very si
 Scale-free degree distribution only at the ougoming degrees leads to an intermediate behaviour between scale-free and bounded networks. While scale free out degree distributions help spreading from the 'half hubs', the bounded in degree distribution prevents the effective reaching of these 'half hubs'.
 
 
-Here I show the fractional of nodes reached by the infection depending on the spreading rate.
+Here I show the fractional of nodes reached by the infection depending on the spreading rate. Confidence intervals are only shown for the half scale-free networks.
 
 ![fig1a](figs/fig1a_final.png)
 
 
-Here I show supercritical spreading the fractional of nodes reached by the infection depending on the spreading rate.
+Here I show supercritical spreading the fractional of nodes reached by the infection depending on the spreading rate. It shows exponential spreading similarly to bounded networks.
 
 ![fig1a](figs/fig3a_final.png)
 
