@@ -18,7 +18,7 @@ Here I show with <kin> = <kout> = 3 directed networks, the above described behav
 
 Reproduced figure            |  Original figure
 :-------------------------:|:-------------------------:
-![fig1](figs/fig1_best_yet.png) | ![fig1](original_figs/fig1.png)  
+![fig1](figs/fig1_final.png) | ![fig1](original_figs/fig1.png)  
 
 
 
