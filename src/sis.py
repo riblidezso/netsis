@@ -47,7 +47,6 @@ class SIS:
             self.inf = set(x for x in self.nodes if (random.random()<p0) )
         
         self.lam = lam
-        # self.mu = mu
         
     
     def update(self):
@@ -60,10 +59,6 @@ class SIS:
         for ki in k:
             for ei in self.edge_d[ki]:
                 if random.random() < self.lam:
-                    #self.new_inf.add(ei) 
                     new_inf.add(ei) 
         # decay    
-        self.inf = new_inf
-        #for ki in k:
-        #    if random.random() < self.mu:
-        #        self.inf.remove(ki)           
+        self.inf = new_inf         
