@@ -57,8 +57,9 @@ Scale-free graphs have no epidemic threshold. Even with spreading rates well abo
 
 Reproduced figure            |  Original figure
 :-------------------------:|:-------------------------:
-![fig9](figs/fig9.png) |  ![fig9](original_figs/fig9.png)  
+![fig9](figs/fig9_final.png) |  ![fig9](original_figs/fig9.png)  
 
 
 ##### Note:
 On scale free networks an infection seeded in a single node can easily get trapped and disappear in the first step if it visits a node with 0 outgoing degrees. In order to avoid a spurious drop in the curves, i decided to eliminate runs where the infection disappeared after the first step.
+
