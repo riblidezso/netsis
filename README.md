@@ -66,15 +66,16 @@ On scale free networks an infection seeded in a single node can easily get trapp
 
 ---
 
-# Directed networks with Scale-free distribution only in or out degrees
+# Directed networks with scale-free distribution only in or out degrees
 
 Scale-free degree distribution only at the incoming degrees reproduces a very similar  epidemic threshold, and actually hurts the spreadin of infections. This is understandable, as a single node reaches less second neighbors due to the convergence of routes to nodes with high incoming degrees, and these nodes do not have large amount of outgoing degrees.
 (Note that scale free degree distributions with uncorrelated in-out degrees lead to the same behaviour, this is not shown here).
 
 Scale-free degree distribution only at the ougoming degrees leads to an intermediate behaviour between scale-free and bounded networks. While scale free out degree distributions help spreading from the 'half hubs', the bounded in degree distribution prevents the effective reaching of these 'half hubs'.
 
-
 Here I show the fractional of nodes reached by the infection depending on the spreading rate. Confidence intervals are only shown for the half scale-free networks.
+The results indicate that scale-free distribution is necessary both in out and in degrees in order to overcome the epidemic threshold.
+
 
 ![fig1a](figs/fig1a_final.png)
 
@@ -83,3 +84,13 @@ Here I show supercritical spreading the fractional of nodes reached by the infec
 
 ![fig1a](figs/fig3a_final.png)
 
+---
+
+# Conclusions
+
+
+I studied the behaviour of the SIS model on directed networks with scale-free and exponentially bounded degree distributions, and qualitatitively reproduced the main figures in the Satorras-Vespigniani paper.
+
+A also inspected the effect of scale-free distributions only appearing in in or our degrees. 
+SF distribution only in incoming degrees slows spreading compared to an ER graph.
+SF distribution only in outcoming degrees facilitates spreading compared to an ER graph, but the epidemic threshold still seems to persist altough at a lower spreading rate.
