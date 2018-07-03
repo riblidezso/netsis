@@ -34,23 +34,22 @@ def fig1a(N, M, rep, title='', filename='', kavg=3.,
                                in_scale_free=False, out_scale_free=False,
                                same_deg=True)[-1]
             
-            # scale-free in and out
-            # scale-free in, no degree correlation
-            p[2,i,j] = run_sis(N, M, lam, p0=p0, kavg=kavg, gamma=gamma, 
-                               in_scale_free=True, out_scale_free=False,
-                               same_deg=False)[-1]
-            # scale free out, same net with reverted edges
-            # no degree correlation
-            p[3,i,j] = run_sis(N, M, lam, p0=p0, kavg=kavg, gamma=gamma, 
-                               in_scale_free=False, out_scale_free=True,
-                               same_deg=False)[-1]
+            # scale-free in and out, no degree coreelation
+            # get a graph
+            g = custom_graph(N,gamma,in_scale_free=True, out_scale_free=False,
+                             same_deg=False, k=kavg)
+            # scale-free in,no degree coreelation
+            p[2,i,j] = run_sis(N, M, lam, g=g, p0=p0)[-1]
+            # scale free out, no degree coreelation, 
+            # same net with reverted edges
+            p[3,i,j] = run_sis(N, M, lam, g=g.reverse(), p0=p0)[-1]
             
-
+            
     line, = plt.plot(lams,p[0].mean(axis=1),'+--',label='SF')
     line, = plt.plot(lams,p[1].mean(axis=1),'x:',label='ER')
-    line, = plt.plot(lams,p[2].mean(axis=1),'o-',label='SF in')
+    line, = plt.plot(lams,p[2].mean(axis=1),'o-',label='SF in')    
     line, = plt.plot(lams,p[3].mean(axis=1),'v-.',label='SF out')
-
+    
     plt.xlabel(r'$\lambda$')
     plt.ylabel('p')
     plt.title(title)
@@ -62,4 +61,4 @@ def fig1a(N, M, rep, title='', filename='', kavg=3.,
 if __name__=='__main__':
     fig1a(1000, 1000, rep = 30, p0 = -1,
          lams = np.arange(0.001,0.61,0.03), 
-         title='',filename='fig1a_fixed')
+         title='',filename='fig1b_rev')

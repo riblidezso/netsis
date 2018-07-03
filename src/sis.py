@@ -17,11 +17,14 @@ from custom_graph import custom_graph
 
 
 def run_sis(N, M, lam, p0 = -1, kavg=3., gamma = 2.5, 
-            in_scale_free=True, out_scale_free=True):
+            in_scale_free=True, out_scale_free=True, 
+            same_deg = True, g = None):
     """Run SIS simulation."""
     p = np.zeros(M)  # data holder
     # scale free or not scale free directed graph
-    g = custom_graph(N, gamma, in_scale_free, out_scale_free, kavg) 
+    if g is None:  # create new net if not given
+        g = custom_graph(N, gamma, in_scale_free, out_scale_free, 
+                         kavg, same_deg) 
     sis = SIS(g, lam, p0)  # sis model
     for k in range(M):
         sis.update()

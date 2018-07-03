@@ -28,10 +28,10 @@ def fig1(N, M, rep, title='', filename='', kavg=3.,
             print j,;sys.stdout.flush()
             # scale-free
             p[0,i,j] = run_sis(N, M, lam, p0, kavg, gamma, in_scale_free=True, 
-                               out_scale_free=True, same_deg=True)[-1]
+                               out_scale_free=True, same_deg=False)[-1]
             # er
             p[1,i,j] = run_sis(N, M, lam, p0, kavg, gamma, in_scale_free=False, 
-                               out_scale_free=False, same_deg=True)[-1]
+                               out_scale_free=False, same_deg=False)[-1]
 
     line, = plt.plot(lams,p[0].mean(axis=1),'+--',label='SF')
     line, = plt.plot(lams,p[1].mean(axis=1),'x:',label='ER')
@@ -45,5 +45,5 @@ def fig1(N, M, rep, title='', filename='', kavg=3.,
     
     
 if __name__=='__main__':
-    fig1(1000, 1000, rep=100, p0 = -1, lams = np.arange(0.001,0.41,0.03), 
-         show_intervals = False, title='', filename='fig1')
+    fig1(1000, 1000, rep=100, p0 = -1, lams = np.arange(0.001,0.61,0.03), 
+         show_intervals = False, title='', filename='fig1_nocorr')
