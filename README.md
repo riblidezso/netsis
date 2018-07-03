@@ -13,17 +13,26 @@ Random networks with exponentially bounded degree distributions have a critical 
 
 Random networks with scale free degree distributions do no have an epidemic threshold, even very weakly spreading infections can became endemic in a large enough network. The stationary fraction of infected nodes smoothly converges to 0 at 0 spreding rate.
 
-Here I show with <kin> = <kout> = 3 directed networks, the above described behaviour on Erdős-Rényi and scale-free networks. The chance for healing was selected to be 1, similarly to the referenced paper. At <kin/out> =3, the epidemic threshold is at 1/3, which is clearly visible for the ER-graph. The curves are the mean fractionsof 100 realizations, the shaded areas represent 68% confidence intervals.
+When creating a directed graph in-out degree correlations can make large differences, in the follwoing section I consider 2 cases: 1. A node has the same number of in and out edges, 2: No degree correlations at all.
 
+#### With in-out degree correlations
+
+Here I show with <kin> = <kout> = 3 directed networks, the above described behaviour on Erdős-Rényi and scale-free networks. The chance for healing was selected to be 1, similarly to the referenced paper. At <kin/out> = 3, the epidemic threshold is slightly under 1/3, which holds for undirected ER-graph. The curves are the mean fractions of 100 realizations.
 
 Reproduced figure            |  Original figure
 :-------------------------:|:-------------------------:
-![fig1](figs/fig1_final.png) | ![fig1](original_figs/fig1.png)  
+![fig1](figs/fig1.png) | ![fig1](original_figs/fig1.png)  
+
+#### With no dregree correlations
 
 
+Scale free networks with no degree correlations hinder spreading compared to ER graphs. Its seems like it is basically impossible to get into the out-hubs, and impossible to leave the in-hubs.
+The ER graph shows qualitatively similar behaviour to the previous section with epidemic thershold ~1/3 similarly to undirected graphs, and slightly higher than in the correlated version.
+
+![fig1](figs/fig1_nocorr.png)
 
 ##### Notes: 
-The scale-free networks were created with a configuration model, therefore they are pseudographs, not graphs. This should not be a serious problem in this case. The network has a power-law, Zipf degree distribution with gamma = 2.2. The average degree was selected to be ~3 simply for conveniance. Each node has the same out and in degree.
+The networks were created with a configuration model, therefore they are pseudographs, not graphs. This should not be a serious problem in this case. The scale-free networks have power-law, Zipf degree distribution with gamma = 2.2. The average degree was selected to be ~3 simply for conveniance. 
 
 
 ### Supercritical spreading on random networks with exponentially bounded degree distribution (Figure3)
@@ -35,6 +44,9 @@ Here I show the average time dependence of the fraction of infected nodes, just 
 Reproduced figure            |  Original figure
 :-------------------------:|:-------------------------:
 ![fig3](figs/fig3_final.png) | ![fig3](original_figs/fig3.png)  
+
+##### Notes:
+No degree correlations in this section.
 
 
 ### Subcritical extinction on random networks with exponentially bounded degree distribution (Figure4)
@@ -48,6 +60,8 @@ Reproduced figure            |  Original figure
 :-------------------------:|:-------------------------:
 ![fig4](figs/fig4_final.png) |  ![fig4](original_figs/fig4.png)  
 
+##### Notes:
+No degree correlations in this section.
 
 ### Spreading on scale-free random networks (Figure9)
 
@@ -63,34 +77,35 @@ Reproduced figure            |  Original figure
 ##### Note:
 On scale free networks an infection seeded in a single node can easily get trapped and disappear in the first step if it visits a node with 0 outgoing degrees. In order to avoid a spurious drop in the curves, i decided to eliminate runs where the infection disappeared after the first step.
 
+##### Notes:
+Perfect in-out degree correlations in this section.
 
 ---
 
 # Directed networks with scale-free distribution only in or out degrees
 
-Scale-free degree distribution only at the incoming degrees reproduces a very similar  epidemic threshold, and actually hurts the spreadin of infections. This is understandable, as a single node reaches less second neighbors due to the convergence of routes to nodes with high incoming degrees, and these nodes do not have large amount of outgoing degrees.
-(Note that scale free degree distributions with uncorrelated in-out degrees lead to the same behaviour, this is not shown here).
+Note that networks in this section have no degree correlations! 
 
-Scale-free degree distribution only at the ougoming degrees leads to an intermediate behaviour between scale-free and bounded networks. While scale free out degree distributions help spreading from the 'half hubs', the bounded in degree distribution prevents the effective reaching of these 'half hubs'.
+Scale-free in degree distribution only at the incoming degrees reproduces a very similar epidemic threshold, and actually hurts the spreading of infections. This is understandable, as a single node reaches less second neighbors due to the convergence of routes to nodes with high incoming degrees, and these nodes do not have large amount of outgoing degrees.
 
-Here I show the fractional of nodes reached by the infection depending on the spreading rate. Confidence intervals are only shown for the half scale-free networks.
+Scale-free out degree distribution leads to similar behaviour as the above.
+
+Here I show the fractional of nodes reached by the infection depending on the spreading rate.
 The results indicate that scale-free distribution is necessary both in out and in degrees in order to overcome the epidemic threshold.
 
 
-![fig1a](figs/fig1a_final.png)
+![fig1a](figs/fig1b_rev.png)
 
-
-Here I show supercritical spreading the fractional of nodes reached by the infection depending on the spreading rate. It shows exponential spreading similarly to bounded networks.
-
-![fig1a](figs/fig3a_final.png)
+##### Notes:
+The 2 different graph types were obtained from each other by reversing the direction of edges.
 
 ---
 
 # Conclusions
 
 
-I studied the behaviour of the SIS model on directed networks with scale-free and exponentially bounded degree distributions, and qualitatitively reproduced the main figures in the Satorras-Vespigniani paper.
+I studied the behaviour of the SIS model on directed networks with scale-free and exponentially bounded degree distributions, and qualitatitively reproduced the main figures in the Satorras-Vespigniani paper, when in and out degrees were perfectly correlated.
 
-A also inspected the effect of scale-free distributions only appearing in in or our degrees. 
-SF distribution only in incoming degrees slows spreading compared to an ER graph.
-SF distribution only in outcoming degrees facilitates spreading compared to an ER graph, but the epidemic threshold still seems to persist altough at a lower spreading rate.
+A also inspected the effect of degree correlations, and concluded than correlation is necessary for the disappearence of the epidemic threshold for scale free networks, and correlation facilitates spreading on an ER graph but it does not change qualitative behaviour.
+
+A also inspected the effect of scale-free distributions only appearing in in or our degrees.  SF distribution only in incoming degrees or outgoing degrees slows spreading compared to an ER graph.
